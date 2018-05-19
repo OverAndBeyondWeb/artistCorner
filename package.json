@@ -22,5 +22,11 @@
   "bugs": {
     "url": "https://github.com/OverAndBeyondWeb/artistCorner/issues"
   },
-  "homepage": "https://github.com/OverAndBeyondWeb/artistCorner#readme"
+  "homepage": "https://github.com/OverAndBeyondWeb/artistCorner#readme",
+  "dependencies": {
+    "dotenv": "^5.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.4"
+  }
 }
