@@ -1,0 +1,26 @@
+{
+  "name": "artistcorner",
+  "version": "1.0.0",
+  "description": "a full stack MERN app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OverAndBeyondWeb/artistCorner.git"
+  },
+  "keywords": [
+    "react",
+    "express",
+    "mongodb",
+    "node",
+    "fullstack"
+  ],
+  "author": "Juan Fox",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OverAndBeyondWeb/artistCorner/issues"
+  },
+  "homepage": "https://github.com/OverAndBeyondWeb/artistCorner#readme"
+}
