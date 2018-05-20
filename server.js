@@ -1,24 +1,34 @@
 //get access to environment variables
-require("dotenv").config();
+require('dotenv').config();
 
 //define app dependencies
-const express = require("express");
-const mongoose = require("mongoose");
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 //initialize express app
 const app = express();
 
+//send all requests through body-parser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
 //db config
-const db = require("./config/keys").mongoURI;
+const db = require('./config/keys').mongoURI;
 
 //connect to MongoDB
 mongoose
   .connect(db)
-  .then(() => console.log("connected to mongo"))
+  .then(() => console.log('connected to mongo'))
   .catch(err => console.log(err));
 
 //define a route
-app.get("/", (req, res) => res.send("welcome, this an express app"));
+app.get('/', (req, res) => res.send('welcome, this an express app'));
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/profile', require('./routes/api/profile'));
+app.use('/api/posts', require('./routes/api/posts'));
+app.use('/auth/signup', require('./routes/auth/signup'));
+app.use('/auth/login', require('./routes/auth/login'));
 
 //set up a port variable
 const PORT = process.env.PORT || 3000;
