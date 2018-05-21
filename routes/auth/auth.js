@@ -11,7 +11,7 @@ const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 
 // route to create a new user
-router.post('/', (req, res) => {
+router.post('/register', (req, res) => {
   db.User.findOne({email:req.body.email})
     .then(user => {
       if(user) {
@@ -43,6 +43,19 @@ router.post('/', (req, res) => {
               .catch(err => console.log(err));
           });
         });
+      }
+    })
+    .catch(err => console.log(err));
+});
+
+// route to find a user from passed in email
+router.post('/login', (req, res) => {
+  db.User.findOne({email: req.body.email})
+    .then(user => {
+      if(!user) {
+        res.status(400).json({message: 'user not found'})
+      } else {
+        console.log(user);
       }
     })
     .catch(err => console.log(err));
