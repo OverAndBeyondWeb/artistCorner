@@ -53,9 +53,19 @@ router.post('/login', (req, res) => {
   db.User.findOne({email: req.body.email})
     .then(user => {
       if(!user) {
-        res.status(400).json({message: 'user not found'})
+        res.status(400).json({message: 'User not found'})
       } else {
-        console.log(user);
+
+        // compare passed in password to hasshed password in database
+        bcrypt.compare(req.body.password, user.password)
+        .then(isMatch => {
+          if(isMatch) {
+            res.status(200).json({message: 'Successful login'})
+          } else {
+            res.status(400).json({message: 'Incorrect password'})
+          }
+        })
+        .catch();
       }
     })
     .catch(err => console.log(err));
