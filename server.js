@@ -5,6 +5,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const passport = require('passport');
 
 //initialize express app
 const app = express();
@@ -21,6 +22,13 @@ mongoose
   .connect(db)
   .then(() => console.log('connected to mongo'))
   .catch(err => console.log(err));
+
+// Send all requests through passport
+app.use(passport.initialize());
+
+// Reference passport config
+require('./config/passport')(passport);
+
 
 //use routes from routes directory
 app.use('/api/users', require('./routes/api/users'));
