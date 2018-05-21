@@ -10,6 +10,9 @@ const gravatar = require('gravatar');
 // reference bcryptjs
 const bcrypt = require('bcryptjs');
 
+// reference jsonwebtoken
+const jwt = require('jsonwebtoken');
+
 // route to create a new user
 router.post('/register', (req, res) => {
   db.User.findOne({email:req.body.email})
@@ -60,7 +63,21 @@ router.post('/login', (req, res) => {
         bcrypt.compare(req.body.password, user.password)
         .then(isMatch => {
           if(isMatch) {
-            res.status(200).json({message: 'Successful login'})
+
+            const payload = {
+              id: user._id,
+              name: user.name,
+              email: user.email,
+              avatar: user.avatar
+            };
+
+            jwt.sign(payload, require('../../config/keys').SECRET, {expiresIn: 3600}, (err, token) => {
+              if(err) throw err;
+              res.status(200).json({
+                success: true,
+                token
+              })
+            });
           } else {
             res.status(400).json({message: 'Incorrect password'})
           }
