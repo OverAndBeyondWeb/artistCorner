@@ -1,7 +1,10 @@
+// reference mongoose
 const mongoose = require('mongoose');
 
+// access Schema constructor
 const Schema = mongoose.Schema;
 
+// schema for a user entry
 const UserSchema = new Schema({
   name: {
     type: String,
@@ -14,6 +17,9 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+  avatar: {
+    type: String
   },
   date: {
     type: Date,
