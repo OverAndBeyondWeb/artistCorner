@@ -22,8 +22,7 @@ mongoose
   .then(() => console.log('connected to mongo'))
   .catch(err => console.log(err));
 
-//define a route
-app.get('/', (req, res) => res.send('welcome, this an express app'));
+//use routes from routes directory
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
