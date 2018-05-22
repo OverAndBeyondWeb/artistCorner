@@ -1,7 +1,7 @@
 const validator = require('validator');
 
 module.exports = {
-  registerInputValidat(data) {
+  registerInputValidate: function(data) {
     let errors = {};
 
     if (!validator.isLength(data.name, {min: 4, max: 24})) {
