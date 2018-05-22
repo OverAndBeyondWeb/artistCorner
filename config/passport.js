@@ -10,12 +10,12 @@ opts.secretOrKey = require('./keys').SECRET;
 
 module.exports = (passport) => {
   passport.use(new JwtStrategy(opts, (jwt_payload, done) => {
-    db.User.findOne({id: jwt_payload.id})
+    db.User.findOne({_id: jwt_payload.id})
       .then(user => {
         if(user) {
-          return done(null, user)
+          return done(null, user);
         } else {
-          return done(null, false)
+          return done(null, false);
         }
       })
       .catch(err => console.log(err))
