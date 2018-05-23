@@ -1,13 +1,31 @@
 const validator = require('validator');
+const helpers = require('../helpers/helpers');
 
-module.exports = {
-  registerInputValidate: function(data) {
-    let errors = {};
 
-    if (!validator.isLength(data.name, {min: 4, max: 24})) {
-      errors.name = 'Name must be between 4 and 24 characters';
-    }
+// TODO: Set more validation cases
+module.exports.validate = (registrationData) => {
+  let errors = {};
 
-    return errors;
+  if (!validator.isLength(registrationData.name, {min: 4, max: 24})) {
+    errors.name = 'Name must be between 4 and 24 characters';
   }
+
+  // Validate that all fields are filled out
+  if(helpers.isEmpty(registrationData.name)) {
+    errors.name = 'Please enter your name';
+  }
+
+  if(helpers.isEmpty(registrationData.email)) {
+    errors.email = 'Please enter your email';
+  }
+
+  if(helpers.isEmpty(registrationData.password)) {
+    errors.password = 'Please enter a password';
+  }
+
+  if(helpers.isEmpty(registrationData.password2)) {
+    errors.password2 = 'Please re-enter your password';
+  }
+
+  return errors;
 }

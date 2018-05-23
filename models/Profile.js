@@ -9,10 +9,20 @@ const ProfileSchema = new Schema({
   bio: {
     type: String
   },
-  portfolioLink: {
+  links: {
     type: String
   },
   favoriteMedium: {
     type: String
+  },
+  favoritePosts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'posts'
+    }
+  ],
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'users'
   }
 });
