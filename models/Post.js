@@ -8,7 +8,8 @@ const PostSchema = new Schema({
     required: true
   },
   body: {
-    type: String
+    type: String,
+    required: true
   },
   attachment: {
     type: String
