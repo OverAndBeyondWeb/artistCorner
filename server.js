@@ -37,7 +37,7 @@ app.use('/api/posts', require('./routes/api/posts'));
 app.use('/auth', require('./routes/auth/auth'));
 
 //set up a port variable
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 //run the app on the specified port
 app.listen(PORT, () => console.log(`app listening on port: ${PORT}`));
