@@ -13,36 +13,39 @@ const jwt = require('jsonwebtoken');
 module.exports.registerUser = (req, res) => {
   db.User.findOne({email:req.body.email})
     .then(user => {
+      // Check that username and email do not already exist in database
       if(user) {
-        return res.status(400).json({message: 'Email already exists'});
-      } else {
+        let errors = {};
+        errors.email = 'Email already exists';
+        errors.username = 'Username already exists';
+        return res.status(400).json({errors});
+      };
 
-        // user gravatar to grab user's avatar
-        const avatar = gravatar.url(req.body.url, {
-          s: '200',
-          r: 'pg',
-          d: 'mm' 
-        });
+      // user gravatar to grab user's avatar
+      const avatar = gravatar.url(req.body.url, {
+        s: '200',
+        r: 'pg',
+        d: 'mm' 
+      });
 
-        // create new user object
-        const newUser = new db.User({
-          name: req.body.name,
-          email: req.body.email,
-          avatar,
-          password: req.body.password 
+      // create new user object
+      const newUser = new db.User({
+        username: req.body.username,
+        email: req.body.email,
+        avatar,
+        password: req.body.password 
+      });
+      
+      // hash password then save user in database
+      bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(newUser.password, salt, (err, hash) => {
+          if(err) throw err;
+          newUser.password = hash;
+          newUser.save()
+            .then(user => res.status(200).json({user}))
+            .catch(err => console.log(err));
         });
-        
-        // hash password then save user in database
-        bcrypt.genSalt(10, (err, salt) => {
-          bcrypt.hash(newUser.password, salt, (err, hash) => {
-            if(err) throw err;
-            newUser.password = hash;
-            newUser.save()
-              .then(user => res.status(200).json({user}))
-              .catch(err => console.log(err));
-          });
-        });
-      }
+      });
     })
     .catch(err => console.log(err));
 }
