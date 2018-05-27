@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
+import Register from './components/auth/Register';
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
         <div className="App">
           <Navbar/>
           <Route exact path="/" component={Landing}/>
+          <Route exact path="/register" component={Register}/>
         </div>
       </Router>
       
