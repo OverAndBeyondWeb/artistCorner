@@ -7,7 +7,7 @@ export default class Navbar extends Component {
   render() {
     return (
       
-        <Menu inverted size='large'>
+        <Menu inverted>
           <Container>
             <Link to=""><Menu.Item >Home</Menu.Item></Link>
             <Link to=""><Menu.Item >Company</Menu.Item></Link>
