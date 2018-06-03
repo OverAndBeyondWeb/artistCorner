@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Layout from './components/Layout/Layout';
-// import Landing from './components/layout/Landing';
+import Home from './containers/Home/Home';
 import Register from './components/auth/Register';
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Layout>
-            {/* <Route exact path="/" component={Landing}/> */}
+            <Route exact path="/" component={Home}/>
             <Route exact path="/register" component={Register}/>
           </Layout>
         </div>
