@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Layout from './components/Layout/Layout';
 import Home from './containers/Home/Home';
-import Register from './components/auth/Register';
+import Auth from './containers/Auth/Auth';
+import Register from './components/Register/Register';
+import Login from './components/Login/Login';
 
 class App extends Component {
   render() {
@@ -12,7 +14,8 @@ class App extends Component {
         <div className="App">
           <Layout>
             <Route exact path="/" component={Home}/>
-            <Route exact path="/register" component={Register}/>
+            <Route path={"/register"} component={Auth}/>
+            <Route path={"/Login"} component={Auth}/>
           </Layout>
         </div>
       </Router>

@@ -5,7 +5,7 @@ export default () => {
   return (
     <footer>
       <Segment inverted>
-        <p>Coppyright &copy; {new Date().getFullYear()}</p>
+        <p>Copyright &copy; {new Date().getFullYear()}</p>
       </Segment>
     </footer>
   )
