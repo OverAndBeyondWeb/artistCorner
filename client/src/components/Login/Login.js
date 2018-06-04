@@ -40,7 +40,11 @@ const Login = (props) => {
                 value={password}
                 onChange={(e) => props.setStateFromForm(e)}
               />
-
+              <Form.Input
+                type='hidden'
+                name='route'
+                value='login'
+              />
               <Button
                 color='teal'
                 fluid

@@ -11,6 +11,8 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 module.exports.registerUser = (req, res) => {
+  console.log(req.body)
+
   db.User.findOne({email:req.body.email})
     .then(user => {
       // Check that username and email do not already exist in database

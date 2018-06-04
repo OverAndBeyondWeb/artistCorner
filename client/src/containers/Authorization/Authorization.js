@@ -27,8 +27,9 @@ class Authorization extends Component {
   submitForm = (e) => {
     e.preventDefault();
     let user = this.state.fields;
+    let url = '/auth' + this.props.match.path;
 
-    axios.post('/auth/login', user)
+    axios.post(url, user)
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
   }

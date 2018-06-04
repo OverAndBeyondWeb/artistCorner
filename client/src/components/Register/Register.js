@@ -56,7 +56,11 @@ const Register = (props) => {
                 value={password2}
                 onChange={(e) => props.setStateFromForm(e)}
               />
-
+              <Form.Input
+                type='hidden'
+                name='route'
+                value='register'
+              />
               <Button
                 color='teal'
                 fluid size='large'
