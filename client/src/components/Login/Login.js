@@ -1,5 +1,7 @@
-import React from 'react'
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
 
 const Login = (props) => {
   const { email, password } = props.values;
@@ -40,13 +42,17 @@ const Login = (props) => {
                 onChange={(e) => props.setStateFromForm(e)}
               />
 
-              <Button color='teal' fluid size='large'>
+              <Button
+                color='teal'
+                fluid
+                size='large'
+                onClick={(e) => props.submitForm(e)}>
                 Login
               </Button>
             </Segment>
           </Form>
           <Message>
-            New to us? <a href='#'>Sign Up</a>
+            New to us? <Link to='/register'>Sign Up</Link>
           </Message>
         </Grid.Column>
       </Grid>

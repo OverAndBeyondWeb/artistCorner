@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
 
 const Register = (props) => {
@@ -56,13 +57,16 @@ const Register = (props) => {
                 onChange={(e) => props.setStateFromForm(e)}
               />
 
-              <Button color='teal' fluid size='large'>
-                Login
+              <Button
+                color='teal'
+                fluid size='large'
+                onClick={(e) => props.submitForm(e)}>
+                  Login
               </Button>
             </Segment>
           </Form>
           <Message>
-            New to us? <a href='#'>Sign Up</a>
+            Already registered?<Link to='/login'>Login</Link >
           </Message>
         </Grid.Column>
       </Grid>

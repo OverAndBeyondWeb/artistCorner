@@ -4,8 +4,6 @@ import './App.css';
 import Layout from './components/Layout/Layout';
 import Home from './containers/Home/Home';
 import Auth from './containers/Auth/Auth';
-import Register from './components/Register/Register';
-import Login from './components/Login/Login';
 
 class App extends Component {
   render() {

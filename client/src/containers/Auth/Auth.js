@@ -23,11 +23,24 @@ class Auth extends Component {
     });
   }
 
+  submitForm = (e) => {
+    e.preventDefault();
+    console.log(this.state.fields);
+  }
+
   render() {
     
     const formComponent = this.props.match.path === '/register' ?
-      <Register values={this.state.fields} setStateFromForm={this.setStateFromForm}/> :
-      <Login values={this.state.fields} setStateFromForm={this.setStateFromForm}/>;
+      <Register
+        values={this.state.fields}
+        setStateFromForm={this.setStateFromForm}
+        submitForm={this.submitForm}
+      /> :
+      <Login
+        values={this.state.fields}
+        setStateFromForm={this.setStateFromForm}
+        submitForm={this.submitForm}
+      />;
      
     return (
       <Wrapper>
