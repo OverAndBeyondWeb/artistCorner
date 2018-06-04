@@ -5,7 +5,6 @@ import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui
 
 const Login = (props) => {
   const { email, password } = props.values;
-  console.log(props);
   return (
     <div className='login-form'>
     

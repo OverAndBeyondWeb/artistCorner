@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
 
 const Register = (props) => {
-  const { name, email, password, password2 } = props.values;
+  const { username, email, password, password2 } = props.values;
   return (
     <div className='register-form'>
       <style>{`
@@ -24,8 +24,8 @@ const Register = (props) => {
                 fluid icon='user'
                 iconPosition='left'
                 placeholder='Username'
-                name="name"
-                value={name}
+                name="username"
+                value={username}
                 onChange={(e) => props.setStateFromForm(e)}
               />
               <Form.Input

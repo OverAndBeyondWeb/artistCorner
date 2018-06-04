@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import Wrapper from '../../components/Wrapper/Wrapper';
 import Register from '../../components/Register/Register';
 import Login from '../../components/Login/Login';
+import axios from 'axios';
 
-class Auth extends Component {
+class Authorization extends Component {
 
   state = {
     fields: {
-      name: '',
+      username: '',
       email: '',
       password: '',
       password2: ''
@@ -25,7 +26,11 @@ class Auth extends Component {
 
   submitForm = (e) => {
     e.preventDefault();
-    console.log(this.state.fields);
+    let user = this.state.fields;
+
+    axios.post('/auth/login', user)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
   }
 
   render() {
@@ -51,4 +56,4 @@ class Auth extends Component {
   }
 };
 
-export default Auth;
+export default Authorization;
