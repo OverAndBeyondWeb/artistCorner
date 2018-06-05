@@ -1,0 +1,5 @@
+.hero {
+  background: #eee url(/images/paint_splatter.png) no-repeat left center;
+  background-size: contain;
+  height: 80vh;
+}
