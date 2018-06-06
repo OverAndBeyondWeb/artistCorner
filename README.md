@@ -10,4 +10,4 @@ Join me as I code a **fullstack application**, starting from create-react-app. I
 * [Express.js](https://expressjs.com/) - 
 * [mongodb](https://www.mongodb.com/) -
 * [mongoos.js](http://mongoosejs.com/) -
-* [Passport](http://www.passportjs.org/) -
+* [Passport.js](http://www.passportjs.org/) -
