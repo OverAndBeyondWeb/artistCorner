@@ -25,7 +25,6 @@ export default class Navbar extends Component {
                 </Menu.Item>
               )}
             </AuthContext.Consumer>
-            
           </Container>
         </Menu>
     )
