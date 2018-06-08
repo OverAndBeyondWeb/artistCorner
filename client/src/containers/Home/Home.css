@@ -3,3 +3,17 @@
   background-size: contain;
   height: 80vh;
 }
+
+.main-heading {
+  font-family: 'Finger Paint', cursive;
+  font-size: 8em;
+}
+
+.main-font {
+  font-family: 'Patrick Hand', cursive;
+}
+
+.sub-heading {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.7em;
+}

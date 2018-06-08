@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Segment, Grid, Header, Image, Button, Icon } from 'semantic-ui-react';
+import { Container, Segment, Grid, Image, Button, Icon } from 'semantic-ui-react';
+import './Home.css';
 
 export default class Landing extends Component {
   render() {
@@ -7,18 +8,12 @@ export default class Landing extends Component {
       <div>
         <Container>
           <Segment inverted>
-            <Header
-              as='h1'
-              content='Imagine-a-Company'
-              inverted
-            />
-            <Header
-              as='h2'
-              content='Do whatever you want when you want to.'
-              inverted
-            />
+            <h1 className="main-heading">The Artist Corner</h1>
             <Button primary size='huge'>
-              Get Started
+              Connect Now
+            </Button>
+            <Button primary size='huge'>
+              Create an Account
               <Icon name='right arrow' />
             </Button>
           </Segment>
@@ -29,14 +24,13 @@ export default class Landing extends Component {
             <Grid container stackable verticalAlign='middle'>
               <Grid.Row>
                 <Grid.Column width={8}>
-                  <Header as='h3' style={{ fontSize: '2em' }}>We Help Companies and Companions</Header>
-                  <p style={{ fontSize: '1.33em' }}>
-                    We can give your company superpowers to do things that they never thought possible. Let us delight
-                    your customers and empower your needs... through pure data analytics.
+                  <h3 className="sub-heading">Connect With Artists Around The World!</h3>
+                  <p style={{ fontSize: '1.33em' }} className="main-font">
+                    We can give you the opportunity to gain insight within your own endeavors, by collaborating with other like minded individuals. Share your triumphs and difficulties with people who share your passions. Enhance your unique artist touch with ideas that can now transcend modern day barriers.
                   </p>
-                  <Header as='h3' style={{ fontSize: '2em' }}>We Make Bananas That Can Dance</Header>
-                  <p style={{ fontSize: '1.33em' }}>
-                    Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.
+                  <h3 className="sub-heading">Be A Part Of A Growing Community</h3>
+                  <p style={{ fontSize: '1.33em' }} className="main-font">
+                    Get signed up today! We would love to be a part of your artistic journey!
                   </p>
                 </Grid.Column>
                 <Grid.Column floated='right' width={6}>
@@ -50,7 +44,7 @@ export default class Landing extends Component {
               </Grid.Row>
               <Grid.Row>
                 <Grid.Column textAlign='center'>
-                  <Button size='huge'>Check Them Out</Button>
+                  <Button size='huge'>Check It Out</Button>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
