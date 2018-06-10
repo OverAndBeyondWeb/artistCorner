@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Wrapper from '../../components/Wrapper/Wrapper';
 import Register from '../../components/Register/Register';
 import Login from '../../components/Login/Login';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 class Authorization extends Component {
@@ -30,7 +31,9 @@ class Authorization extends Component {
     let url = '/auth' + this.props.match.path;
 
     axios.post(url, user)
-      .then(res => console.log(res.data))
+      .then(res => {
+        this.props.history.replace("/dashboard");
+      })
       .catch(err => console.log(err));
   }
 

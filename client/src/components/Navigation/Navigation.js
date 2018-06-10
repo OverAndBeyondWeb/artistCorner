@@ -16,12 +16,12 @@ export default class Navbar extends Component {
             <Link to="/profiles"><Menu.Item >Profiles</Menu.Item></Link>
             <Link to="posts"><Menu.Item >Posts</Menu.Item></Link>
             <AuthContext.Consumer>
-              {auth => (
+              {context => (
                 <Menu.Item position='right'>
-                  {auth.isLoggedIn ?
+                  {context.isLoggedIn ?
                     <Menu.Item>Hi Clara</Menu.Item> : signupBtn}
-                  {auth.isLoggedIn ?
-                    <Link to="/"><Button inverted onClick={auth.logUserOut}>Log Out</Button></Link> : loginBtn} 
+                  {context.isLoggedIn ?
+                    <Link to="/"><Button inverted onClick={context.logUserOut}>Log Out</Button></Link> : loginBtn} 
                 </Menu.Item>
               )}
             </AuthContext.Consumer>

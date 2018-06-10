@@ -65,12 +65,12 @@ const Register = (props) => {
                 color='teal'
                 fluid size='large'
                 onClick={(e) => props.submitForm(e)}>
-                  Login
+                  Sign Up !
               </Button>
             </Segment>
           </Form>
           <Message>
-            Already registered?<Link to='/login'>Login</Link >
+            Already registered? <Link to='/login'>Login</Link >
           </Message>
         </Grid.Column>
       </Grid>
