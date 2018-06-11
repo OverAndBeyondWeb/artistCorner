@@ -17,7 +17,7 @@ class App extends Component {
               <Route exact path="/" component={Home}/>
               <Route path={"/register"} component={Authorization}/>
               <Route path={"/login"} component={Authorization}/>
-              <Route path={"/dashboard"} component={Dashboard}/>
+              <Route path={"/dashboard/:username"} component={Dashboard}/>
             </Layout>
           </div>
         </Router>

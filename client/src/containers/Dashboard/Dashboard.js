@@ -9,7 +9,6 @@ class Dashboard extends Component {
 
   render() {
     return (
-    
         <AuthContext.Consumer>
           {context => (
             <div>
