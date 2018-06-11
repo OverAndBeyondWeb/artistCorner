@@ -4,11 +4,39 @@ import { Container, Menu, Button } from 'semantic-ui-react'
 import Avatar from '../Avatar/Avatar';
 
 class Navbar extends Component {
+  state = {
+    isLoggedIn: this.props.context.isLoggedIn
+  }
+
+  componentDidMount() {
+    console.log('mounted');
+  }
+
+  componentDidUpdate() {
+    console.log('update')
+  }
+
+  componentWillUnmount() {
+    console.log('unmount');
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    // Any time the current user changes,
+    // Reset any parts of state that are tied to that user.
+    // In this simple example, that's just the email.
+    if (props.context.isLoggedIn !== state.isLoggedIn) {
+      return {
+        isLoggedIn: props.context.isLoggedIn
+      };
+    }
+    return null;
+  }
+
 
   render() {
     const loginBtn = <Link to="/login"><Button inverted>Log in</Button></Link>,
       signupBtn = <Link to="/register"><Button inverted primary style={{ marginLeft: "0.5em" }}>Sign Up</Button></Link>;
-      const { isLoggedIn, logUserOut } = this.props.context;
+      const { isLoggedIn } = this.state;
       const { avatar } = this.props.location.state || 'https://api.adorable.io/avatars/164/abott@adorable.png';
     return (
       
@@ -21,7 +49,7 @@ class Navbar extends Component {
                   {isLoggedIn ?
                     <Avatar avatarURL={avatar} username={'clara'}/> : signupBtn}
                   {isLoggedIn ?
-                    <Link to="/"><Button inverted onClick={logUserOut}>Log Out</Button></Link> : loginBtn} 
+                    <Link to="/"><Button inverted onClick={this.props.context.logUserOut}>Log Out</Button></Link> : loginBtn} 
                 </Menu.Item>
           </Container>
         </Menu>

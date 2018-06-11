@@ -4,7 +4,7 @@ export const AuthContext = React.createContext();
 
 export class AuthProvider extends Component {
   state = {
-    isLoggedIn: true
+    isLoggedIn: false
   }
 
   render () {
@@ -13,6 +13,9 @@ export class AuthProvider extends Component {
           isLoggedIn: this.state.isLoggedIn,
           logUserOut: () => this.setState({
             isLoggedIn: false
+          }),
+          logUserIn: () => this.setState({
+            isLoggedIn: true
           })
         }}
       >
@@ -20,5 +23,13 @@ export class AuthProvider extends Component {
       </AuthContext.Provider>
     )
   }
+};
+
+export const withAuth = Component => {
+  return (props) => (
+    <AuthContext.Consumer>
+      {context => <Component {...props} context={context} />}
+    </AuthContext.Consumer>
+  )
 };
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Wrapper from '../../components/Wrapper/Wrapper';
 import Register from '../../components/Register/Register';
 import Login from '../../components/Login/Login';
+import { withAuth } from '../../context/AuthContext';
 import axios from 'axios';
 
 class Authorization extends Component {
@@ -38,7 +39,19 @@ class Authorization extends Component {
             avatar: res.data.user.avatar
           }
         }
-        this.props.history.replace(location);
+
+        if(url.includes('register')) {
+          this.props.history.replace('/login');
+          console.log('register');
+        }
+
+        if(url.includes('login')) {
+          console.log('login');
+          this.props.context.logUserIn();
+          this.props.history.replace(location)
+        }
+           
+          
       })
       .catch(err => console.log(err));
   }
@@ -66,4 +79,4 @@ class Authorization extends Component {
   }
 };
 
-export default Authorization;
+export default withAuth(Authorization);
