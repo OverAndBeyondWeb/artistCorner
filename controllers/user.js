@@ -75,8 +75,9 @@ module.exports.loginUser = (req, res) => {
               if(err) throw err;
               res.status(200).json({
                 success: true,
+                user: user,
                 token
-              })
+              });
             });
           } else {
             res.status(400).json({message: 'Incorrect password'})

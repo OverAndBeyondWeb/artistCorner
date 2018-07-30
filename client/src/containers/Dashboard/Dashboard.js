@@ -13,7 +13,7 @@ class Dashboard extends Component {
           {context => (
             <div>
               <Header content="Dashboard"/>
-              <div>hey{}</div>
+              <div>hey{this.props.match.params.username}</div>
             </div>
           )}
         </AuthContext.Consumer>

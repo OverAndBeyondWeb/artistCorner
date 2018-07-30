@@ -28,7 +28,7 @@ class Authorization extends Component {
   submitForm = (e) => {
     e.preventDefault();
     let user = this.state.fields;
-    let url = '/auth' + this.props.match.path;
+    let url = '/auth' + this.props.match.path; // '/auth/register' or '/auth/login'
 
     axios.post(url, user)
       .then(res => {
@@ -47,7 +47,7 @@ class Authorization extends Component {
 
         if(url.includes('login')) {
           console.log('login');
-          this.props.context.logUserIn();
+          this.props.context.logUserIn(res.data);
           this.props.history.replace(location)
         }
            

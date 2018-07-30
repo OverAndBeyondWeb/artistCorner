@@ -47,7 +47,7 @@ class Navbar extends Component {
             <Link to="posts"><Menu.Item >Posts</Menu.Item></Link>
             <Menu.Item position='right'>
                   {isLoggedIn ?
-                    <Avatar avatarURL={avatar} username={'clara'}/> : signupBtn}
+                    <Avatar avatarURL={avatar} username={this.props.context.user.user.username}/> : signupBtn}
                   {isLoggedIn ?
                     <Link to="/"><Button inverted onClick={this.props.context.logUserOut}>Log Out</Button></Link> : loginBtn} 
                 </Menu.Item>
